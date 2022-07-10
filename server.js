@@ -70,15 +70,22 @@ app.get('/api/employees', (req, res) => {
 });
 
 // Add an employee
-// const sql = 'INSERT INTO employees (id, employee_id, first_name, last_name, job_title, department, salary, manager) VALUES (?,?,?,?,?,?,?,?)';
-// const params = [5, 768, 'Charlotte', 'Bronte', 'Technician', 'IT', '80,000', 'Joey Fatone']; 
+app.post('/api/employees', ({ body }, res) => { 
+    const sql = 'INSERT INTO employees (employee_id, first_name, last_name, job_title, department, salary, manager) VALUES (?,?,?,?,?,?,?)';
+    const params = [body.employee_id, body.first_name, body.last_name, body.job_title, body.department, body.salary, body.manager];    
+    
+    db.query(sql, params, (err, result) => {
+        if (err) {
+            res.status(400).json({ error: err.message }); 
+            return; 
+        }
+        res.json({
+            message: 'success', 
+            data: body
+        }); 
+    }); 
+}); 
 
-// db.query(sql, params, (err, result) => {
-//     if (err) {
-//         console.log(err);
-//     }
-//     console.log(result); 
-// }); 
 
 // Default response for unsupported request (Not Found)
 app.use((req, res) => {
