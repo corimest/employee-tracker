@@ -37,6 +37,23 @@ app.get('/api/departments', (req, res) => {
     }); 
 });
 
+// Add a department
+app.post('/api/departments', ({ body }, res) => { 
+    const sql = 'INSERT INTO departments (dept_name) VALUES (?)';
+    const params = [body.dept_name];    
+    
+    db.query(sql, params, (err, result) => {
+        if (err) {
+            res.status(400).json({ error: err.message }); 
+            return; 
+        }
+        res.json({
+            message: 'success', 
+            data: body
+        }); 
+    }); 
+}); 
+
 // View all roles
 app.get('/api/roles', (req, res) => {
     const sql = 'SELECT * FROM roles';
@@ -52,6 +69,23 @@ app.get('/api/roles', (req, res) => {
         });
     });
 });
+
+// Add a role
+app.post('/api/roles', ({ body }, res) => { 
+    const sql = 'INSERT INTO roles (role_title, role_id, role_department, salary) VALUES (?,?,?,?)';
+    const params = [body.role_title, body.role_id, body.role_department, body.salary];    
+    
+    db.query(sql, params, (err, result) => {
+        if (err) {
+            res.status(400).json({ error: err.message }); 
+            return; 
+        }
+        res.json({
+            message: 'success', 
+            data: body
+        }); 
+    }); 
+}); 
 
 //View all employees
 app.get('/api/employees', (req, res) => {
@@ -85,6 +119,11 @@ app.post('/api/employees', ({ body }, res) => {
         }); 
     }); 
 }); 
+
+// Update an employee role 
+// app.put('/api/employees', ({ body }, res) => {}
+
+
 
 
 // Default response for unsupported request (Not Found)
