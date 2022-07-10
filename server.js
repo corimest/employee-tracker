@@ -22,39 +22,63 @@ const db = mysql.createConnection (
 )
 
 // View all departments query 
-db.query('Select * FROM departments', (err, rows) => {
-    if (err) {
-        console.log(err); 
-    }
-    console.log(rows); 
-})
+app.get('/api/departments', (req, res) => {
+    const sql = 'Select * FROM departments'; 
 
-//View all roles
-db.query('SELECT * FROM roles', (err, rows) => {
-    if (err) {
-        console.log(err); 
-    }
-    console.log(rows); 
-})
+    db.query(sql, (err, rows) => {
+        if (err) {
+            res.status(500).json({ error: err.message }); 
+            return; 
+        }
+        res.json({
+            message: 'success', 
+            data: rows
+        });
+    }); 
+});
+
+// View all roles
+app.get('/api/roles', (req, res) => {
+    const sql = 'SELECT * FROM roles';
+
+    db.query(sql, (err, rows) => {
+        if (err) {
+            res.status(500).json({ error: err.message }); 
+            return; 
+        }
+        res.json({
+            message: 'success', 
+            data: rows
+        });
+    });
+});
 
 //View all employees
-db.query('SELECT * FROM employees', (err, rows) => {
-    if (err) {
-        console.log(err); 
-    }
-    console.log(rows); 
-})
+app.get('/api/employees', (req, res) => {
+    const sql = 'SELECT * FROM employees'; 
+
+    db.query(sql, (err, rows) => {
+        if (err) {
+            res.status(500).json({ error: err.message }); 
+            return; 
+        }
+        res.json({
+            message: 'success', 
+            data: rows
+        });
+    });
+});
 
 // Add an employee
-const sql = 'INSERT INTO employees (id, employee_id, first_name, last_name, job_title, department, salary, manager) VALUES (?,?,?,?,?,?,?,?)';
-const params = [5, 768, 'Charlotte', 'Bronte', 'Technician', 'IT', '80,000', 'Joey Fatone']; 
+// const sql = 'INSERT INTO employees (id, employee_id, first_name, last_name, job_title, department, salary, manager) VALUES (?,?,?,?,?,?,?,?)';
+// const params = [5, 768, 'Charlotte', 'Bronte', 'Technician', 'IT', '80,000', 'Joey Fatone']; 
 
-db.query(sql, params, (err, result) => {
-    if (err) {
-        console.log(err);
-    }
-    console.log(result); 
-}); 
+// db.query(sql, params, (err, result) => {
+//     if (err) {
+//         console.log(err);
+//     }
+//     console.log(result); 
+// }); 
 
 // Default response for unsupported request (Not Found)
 app.use((req, res) => {
