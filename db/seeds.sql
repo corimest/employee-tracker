@@ -5,15 +5,16 @@ VALUES
 ('Management'), 
 ('Clinical'); 
 
-INSERT INTO roles (role_title, role_id, role_department, salary)
+INSERT INTO roles (role_title, role_department, role_salary)
 VALUES
-('Sales Team Member', '123', 'Sales', '50,000'), 
-('Technician', '43', 'IT', '80,000'), 
-('CEO', '12', 'Management', '200,000'), 
-('OBGYN', '987', 'Clinical', '127,000'); 
+('Sales Team Member', 'Sales', '50,000'), 
+('Technician',  'IT', '80,000'), 
+('CEO', 'Management', '200,000'), 
+('OBGYN', 'Clinical', '127,000'); 
 
-INSERT INTO employees (employee_id, first_name, last_name, job_title, department, salary, manager)
+INSERT INTO employees (employee_id, first_name, last_name, emp_role, department, salary, manager)
 VALUES
-  ('34', 'James', 'Fraser', 'Sales Team Member', 'Sales', '50,000', 'Clyde Watts'),
-  ('35', 'Jack', 'London', 'Technician', 'IT', '80,000', 'Joey Fatone'),
-  ('36', 'Robert', 'Bruce', 'OBGYN', 'Clinical', '127,000', 'Rachel Powers');
+  ('34', 'James', 'Fraser', 1, 1, 1, 'Clyde Watts'),
+  ('35', 'Jack', 'London', 2, 2, 2, 'Joey Fatone'),
+  ('36', 'Robert', 'Bruce', 4, 4, 4, 'Rachel Powers'),
+  ('12', 'Charlotte', 'Bronte', 3, 3, 3, 'None');
