@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest", 
+    "test": "jest",
     "start": "node server.js"
   },
   "repository": {
@@ -19,7 +19,9 @@
   },
   "homepage": "https://github.com/corimest/employee-tracker#readme",
   "dependencies": {
+    "console.table": "^0.10.0",
     "express": "^4.18.1",
+    "inquirer": "^6.5.2",
     "mysql2": "^2.3.3"
   },
   "devDependencies": {
