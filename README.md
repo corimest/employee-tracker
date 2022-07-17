@@ -18,7 +18,7 @@ An interactive command-line application that helps keep track of current and fut
   
 <img width="867" alt="Screen Shot 2022-07-16 at 11 26 40 PM" src="https://user-images.githubusercontent.com/88792082/179384004-e15a050f-b171-454d-9724-e3583d0128e6.png">
 
-  For adding departments, adding employess, adding roles, and updating specific employees roles, you will follow prompts on the command-line which will manipulate the database data for you. 
+  For adding departments, adding employees, adding roles, and updating specific employees roles, you will follow prompts on the command-line which will manipulate the database data for you. 
   
   <img width="397" alt="Screen Shot 2022-07-16 at 11 28 27 PM" src="https://user-images.githubusercontent.com/88792082/179384009-f5071683-d340-450d-978c-4dfa58819b59.png">
       
