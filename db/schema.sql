@@ -1,9 +1,10 @@
-DROP TABLE IF EXISTS departments; 
-DROP TABLE IF EXISTS employees; 
-DROP TABLE IF EXISTS roles; 
+DROP DATABASE if exists company_tracker;
+CREATE DATABASE company_tracker;
+USE company_tracker;
 
 
 CREATE TABLE departments (
+    id INTEGER AUTO_INCREMENT PRIMARY KEY, 
     dept_name VARCHAR(30) NOT NULL 
 );
 CREATE TABLE roles (
@@ -14,13 +15,10 @@ CREATE TABLE roles (
 );
 CREATE TABLE employees (
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
-    employee_id VARCHAR(30) NOT NULL, 
     first_name VARCHAR(30) NOT NULL, 
     last_name VARCHAR(30) NOT NULL, 
-    emp_role INTEGER, 
-    department INTEGER, 
-    salary INTEGER, 
-    manager VARCHAR(30) NOT NULL,
-    CONSTRAINT fk_role FOREIGN KEY (emp_role) REFERENCES roles(id) ON DELETE SET NULL, 
-    CONSTRAINT fk_salary FOREIGN KEY (salary) REFERENCES roles(id) ON DELETE SET NULL 
+    employee_role VARCHAR(30) NOT NULL, 
+    department VARCHAR(30) NOT NULL, 
+    salary VARCHAR(30) NOT NULL, 
+    manager VARCHAR(30) NOT NULL
 );
