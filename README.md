@@ -23,6 +23,10 @@ An interactive command-line application that helps keep track of current and fut
   <img width="397" alt="Screen Shot 2022-07-16 at 11 28 27 PM" src="https://user-images.githubusercontent.com/88792082/179384009-f5071683-d340-450d-978c-4dfa58819b59.png">
   
   <img width="871" alt="Screen Shot 2022-07-16 at 11 33 04 PM" src="https://user-images.githubusercontent.com/88792082/179384076-1e83754f-58da-4118-a9a0-6f91918d78ea.png">
+  
+  For a full walkthrough, view the video by following the Google Drive link below. 
+  
+  https://drive.google.com/file/d/1uTg3Q9yau-RW-Eae7wUgIEBi9RvPf5lq/view
       
 ## Contact 
   If you have any additional questions, feel free to contact me
